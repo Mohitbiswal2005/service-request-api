@@ -7,6 +7,14 @@ read or modify anything belonging to another user.
 Built with Node.js, Express 5, MongoDB, Mongoose and JWT.
 
 ---
+**Live API:** https://service-request-api-wje1.onrender.com  
+**Interactive docs:** https://service-request-api-wje1.onrender.com/api-docs
+
+The free Render instance sleeps after 15 minutes of inactivity. The first request
+after that takes around 30 seconds while it wakes up.
+
+Seeded logins for trying the API, all with password `Password123`:
+`alice@example.com` (13 requests), `bob@example.com`, `admin@example.com` (admin role).
 
 ## Table of contents
 
