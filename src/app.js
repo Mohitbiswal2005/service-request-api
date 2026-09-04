@@ -65,7 +65,14 @@ app.use('/api/auth', rateLimit({
 
 // General throttle for the rest of the API.
 app.use('/api', rateLimit({ windowMs: 15 * 60 * 1000, max: 300 }));
-
+app.get('/', (req, res) =>
+  res.json({
+    success: true,
+    name: 'Service Request Management API',
+    version: '1.0.0',
+    docs: '/api-docs',
+    health: '/health',
+  }));
 app.get('/health', (req, res) =>
   res.status(200).json({ success: true, status: 'ok', uptime: process.uptime() }));
 
