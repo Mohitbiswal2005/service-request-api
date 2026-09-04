@@ -1,0 +1,79 @@
+{
+  "info": {
+    "_postman_id": "503dabdf-734a-4386-bb57-5b007f6a06a7",
+    "name": "Service Request API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57913169"
+  },
+  "item": [
+    {
+      "name": "1. Signup User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Mohit\",\r\n  \"email\": \"mohit@test.com\",\r\n  \"password\": \"password123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/signup",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "signup"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3. Create Request",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhOTg1NzU0NDBkYTllNDU3MDUxYjMzMiIsImlhdCI6MTc4ODM2ODczMiwiZXhwIjoxNzkwOTYwNzMyfQ.g4K8Vk0CIeAu6F_Pn0Cobjsup5p8YxTFzgiDvTIrMEU",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Fix Server Route\",\r\n  \"description\": \"The backend API is crashing on login.\",\r\n  \"category\": \"Technical\",\r\n  \"priority\": \"High\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/requests",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "requests"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
