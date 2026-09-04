@@ -1,0 +1,36 @@
+# One command to run the whole stack, database included:
+#   docker compose up --build
+# The API is then on http://localhost:5000 and the docs on /api-docs
+
+services:
+  mongo:
+    image: mongo:8
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      MONGO_URI: mongodb://mongo:27017/service-request-api
+      JWT_SECRET: ${JWT_SECRET:-change_me_in_a_real_deployment}
+      JWT_EXPIRES_IN: 15m
+      REFRESH_TOKEN_DAYS: 7
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+volumes:
+  mongo-data:
