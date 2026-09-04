@@ -54,6 +54,7 @@ module.exports = {
   },
 
   servers: [
+    { url: 'https://service-request-api-wje1.onrender.com', description: 'Live (Render)' },
     { url: 'http://localhost:5000', description: 'Local development' },
   ],
 
